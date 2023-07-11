@@ -14,7 +14,15 @@ const userRoutes = require("./routes/users.js");
 const campgroundRoutes = require("./routes/campgrounds.js");
 const reviewRoutes = require("./routes/reviews.js");
 
-mongoose.connect("mongodb://127.0.0.1:27017/yelp-camp");
+mongoose
+	.connect("mongodb://127.0.0.1:27017/yelp-camp")
+	.then(() => {
+		console.log("Mongo Connection Open!!!");
+	})
+	.catch((err) => {
+		console.log("Mongo Connection Error!!!");
+		console.log(err);
+	});
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
@@ -55,6 +63,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
+	res.locals.currentUser = req.user;
 	res.locals.success = req.flash("success");
 	res.locals.error = req.flash("error");
 	next();
