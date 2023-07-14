@@ -1,8 +1,8 @@
 FROM node:10
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY package.json ./
+COPY ["package.json", "package-lock.json*", "./"]
 
 RUN npm install
 
