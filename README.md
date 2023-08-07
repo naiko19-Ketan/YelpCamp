@@ -6,7 +6,7 @@ YelpCamp is a full-stack website project where users can create and review campg
 This project is created using Node.js, Express, MongoDB, and Bootstrap.<br>
 Passport.js is used to handle authentication.<br>
 Upload images with ease using Cloudinary. <br>
-Additional packages include EJS, Joi, Multer, Connect-flash, dotenv, and method-override. <br>
+Additional packages include EJS, Joi, dotenv, and method-override. <br>
 Deployed using Render.
 
 Website link:  https://yelpcamp-7il2.onrender.com
